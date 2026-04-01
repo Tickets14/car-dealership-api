@@ -57,37 +57,6 @@ export function calculateMonthlyPayment(
 }
 
 // ----------------------------------------------------------------
-// Stock / reference number generators
-// ----------------------------------------------------------------
-
-function _datePart(): string {
-  const now = new Date();
-  const yy = String(now.getFullYear()).slice(2);
-  const mm = String(now.getMonth() + 1).padStart(2, '0');
-  const dd = String(now.getDate()).padStart(2, '0');
-  return `${yy}${mm}${dd}`;
-}
-
-function _randomAlphaNum(length: number): string {
-  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-  let result = '';
-  for (let i = 0; i < length; i++) {
-    result += chars.charAt(Math.floor(Math.random() * chars.length));
-  }
-  return result;
-}
-
-/** Generate a stock number like "STK-261231-A3B7" */
-export function generateStockNumber(): string {
-  return `STK-${_datePart()}-${_randomAlphaNum(4)}`;
-}
-
-/** Generate a seller submission reference like "SUB-261231-A3B7" */
-export function generateReferenceNumber(): string {
-  return `SUB-${_datePart()}-${_randomAlphaNum(4)}`;
-}
-
-// ----------------------------------------------------------------
 // Condition / status color helpers  (Tailwind CSS class tokens)
 // ----------------------------------------------------------------
 
