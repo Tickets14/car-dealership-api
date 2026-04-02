@@ -1,9 +1,16 @@
-import { Router } from "express";
+import { Router } from 'express';
+import {
+  getCars,
+  getFeaturedCars,
+  getRecentlySoldCars,
+  getCarById,
+} from '../../controllers/buyer/cars.controller.js';
 
 const router = Router();
 
-router.get("/", (_req, res) => {
-  res.json({ message: "route works" });
-});
+router.get('/', getCars);
+router.get('/featured', getFeaturedCars);
+router.get('/recently-sold', getRecentlySoldCars);
+router.get('/:id', getCarById);
 
 export default router;

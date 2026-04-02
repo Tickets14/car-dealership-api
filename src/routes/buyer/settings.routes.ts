@@ -1,9 +1,8 @@
-import { Router } from "express";
+import { Router } from 'express';
+import { getSettings } from '../../controllers/buyer/settings.controller.js';
 
 const router = Router();
 
-router.get("/", (_req, res) => {
-  res.json({ message: "route works" });
-});
+router.get('/', getSettings);
 
 export default router;
